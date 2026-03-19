@@ -1,7 +1,9 @@
 import mongoose, { model , Schema} from 'mongoose' ;
 
 
-mongoose.connect("mongodb://localhost:27017/brainly")
+mongoose.connect("mongodb+srv://ahad:ahad@cluster0.evtddcf.mongodb.net/brainly")
+  .then(() => console.log("✅ DB connected successfully"))
+  .catch((err) => console.log("❌ DB error:", err));
 
 
 
@@ -18,14 +20,14 @@ const ContentSchema = new Schema ({
     type: String,
 
     tags: [ {type : mongoose.Types.ObjectId, ref : 'Tag'}] ,
-    userId: {type: mongoose.Types.ObjectId , ref: 'User' , require: true},
-    autherId: {type: mongoose.Types.ObjectId , ref: 'User' , require: true},
+    userId: {type: mongoose.Types.ObjectId , ref: 'User' , required: true},
+    autherId: {type: mongoose.Types.ObjectId , ref: 'User' , required: true},
   
 })
 
 const LinkSchema = new Schema({
     hash: String , 
-    userId : {type: mongoose.Types.ObjectId , ref: "User" , require: true , unique: true }
+    userId : {type: mongoose.Types.ObjectId , ref: "User" , required: true , unique: true }
 
 })
 
