@@ -36,6 +36,7 @@ export function CreateContentModal({open , onClose }: ContentModel){
                 "Authorization": localStorage.getItem("token")
             }
         })
+        console.log(BACKEND_URL)
         onClose();
      
 

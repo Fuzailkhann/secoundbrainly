@@ -14,7 +14,7 @@ import { SidebarItem } from "./SidebarItem";
 
 interface SidebarProps {
   setSelectedType: React.Dispatch<React.SetStateAction<ContentType>>;
-  onClick : () => void;
+  onClick? : () => void;
 }
 
 export function Sidebar({ setSelectedType }: SidebarProps) {
