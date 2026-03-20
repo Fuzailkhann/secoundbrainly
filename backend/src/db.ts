@@ -1,11 +1,13 @@
 import mongoose, { model , Schema} from 'mongoose' ;
 
 
-mongoose.connect("mongodb+srv://ahad:ahad@cluster0.evtddcf.mongodb.net/brainly")
+// mongoose.connect("mongodb+srv://ahad:ahad@cluster0.evtddcf.mongodb.net/brainly")
+//   .then(() => console.log("✅ DB connected successfully"))
+//   .catch((err) => console.log("❌ DB error:", err));
+
+mongoose.connect(process.env.MONGO_URI as string)
   .then(() => console.log("✅ DB connected successfully"))
   .catch((err) => console.log("❌ DB error:", err));
-
-
 
 const UserSchema = new Schema({
     username : { type : String , required : true , unique : true} ,
@@ -21,7 +23,7 @@ const ContentSchema = new Schema ({
 
     tags: [ {type : mongoose.Types.ObjectId, ref : 'Tag'}] ,
     userId: {type: mongoose.Types.ObjectId , ref: 'User' , required: true},
-    autherId: {type: mongoose.Types.ObjectId , ref: 'User' , required: true},
+    // autherId: {type: mongoose.Types.ObjectId , ref: 'User' , required: true},
   
 })
 
