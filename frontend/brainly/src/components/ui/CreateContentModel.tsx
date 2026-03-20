@@ -10,14 +10,16 @@ interface ContentModel{
     onClose : () => void;
 }
 
-enum ContentType {
-    youtube = "youtube",
-    twitter = "twitter"
-}
+// enum ContentType {
+//     youtube = "youtube",
+//     twitter = "twitter"
+// }
+export type ContentType = "youtube" | "twitter"
+
 export function CreateContentModal({open , onClose }: ContentModel){
     const titleRef = useRef<HTMLInputElement>(null)
     const linkRef = useRef<HTMLInputElement>(null)
-    const [type , setType] = useState(ContentType.youtube)
+    const [type , setType] = useState<ContentType>("youtube")
 
      async function addContent(){
         const  title = titleRef.current?.value;
@@ -66,21 +68,22 @@ export function CreateContentModal({open , onClose }: ContentModel){
                         <div className="">
                             <h1>Type</h1>
                             <div className="flex gap-1 p-4 flex justify-center">
-                                <Button size ="md"
+                                <Button
+                                 size ="md"
                                  onClick={() =>{
-                                setType(ContentType.youtube)
+                                setType("youtube")
                             }} 
                             text ="youtube" 
-                            variant ={ type === ContentType.youtube ? "primary" : "secondary" } >
+                            variant ={ type === "youtube" ? "primary" : "secondary" } >
 
                             </Button>
 
                             <Button size ="md" 
                             onClick = {() =>{
-                                setType(ContentType.twitter)
+                                setType("twitter")
                                }} 
                                text ="twitter" 
-                            variant ={ type === ContentType.twitter ? "primary" : "secondary" } ></Button>
+                            variant ={ type === "twitter" ? "primary" : "secondary" } ></Button>
 
                             </div>
                             

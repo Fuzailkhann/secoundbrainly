@@ -5,7 +5,7 @@ type Variants =  "primary" | "secondary"
 
 interface ButtonProps {
     variant: Variants;
-    size?: "sm" | "md" | "lg";
+    size: "sm" | "md" | "lg";
     text: string;
     startIcon?: ReactElement;
     endIcon?: ReactElement;
@@ -29,6 +29,10 @@ const sizeStyles ={
 const defaultStyles = "rounded-md flex"
 
 export const Button = (props: ButtonProps) =>{
-    return <button className={`${defaultStyles} ${variantStyles[props.variant]} ${sizeStyles[props.size]} ${props.fullWidth ? 'w-full flex justify-center items-center' : ''}  ${props.loading ? "opacity-45": ""}`} onClick={props.onClick} disabled={props.loading}> {props.startIcon}{props.text}</button>
+    return <button className={`${defaultStyles} ${variantStyles[props.variant]}
+     ${sizeStyles[props.size]} ${props.fullWidth ? 'w-full flex justify-center items-center' : ''}
+       ${props.loading ? "opacity-45": ""}`} 
+       onClick={props.onClick} disabled={props.loading}> 
+    {props.startIcon}{props.text}</button>
 
 }
