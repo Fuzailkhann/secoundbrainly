@@ -2,7 +2,7 @@
 
 interface InputInterfaces {
     placeholder : string;
-    userrefrence? : any;
+    userrefrence? : React.RefObject<HTMLInputElement | null>; 
   
 }
 
