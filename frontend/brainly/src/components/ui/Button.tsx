@@ -12,6 +12,7 @@ interface ButtonProps {
     onClick?: () => void;
     fullWidth?: boolean;
     loading? : boolean;
+    className? : string;
 }
 
 const variantStyles ={
@@ -31,7 +32,8 @@ const defaultStyles = "rounded-md flex"
 export const Button = (props: ButtonProps) =>{
     return <button className={`${defaultStyles} ${variantStyles[props.variant]}
      ${sizeStyles[props.size]} ${props.fullWidth ? 'w-full flex justify-center items-center' : ''}
-       ${props.loading ? "opacity-45": ""}`} 
+       ${props.loading ? "opacity-45": ""}
+       ${props.className || ''}`} 
        onClick={props.onClick} disabled={props.loading}> 
     {props.startIcon}{props.text}</button>
 

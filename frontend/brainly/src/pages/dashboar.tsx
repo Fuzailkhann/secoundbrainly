@@ -37,7 +37,7 @@ function Dashboard() {
       <div className='p-4 ml-72 min-h-screen bg-gray-100 border-4 border-white'>
       <CreateContentModal open= {modalOpen} onClose = {() => setModalOpen(false)} />
       <div className='flex justify-end gap-4'>
-     <Button className ="cursor-pointer" onClick={() => setModalOpen(true)}  startIcon={<PlusIcon size ="md"/>} size="sm" variant= "primary" text="Add content"/>
+     <Button  onClick={() => setModalOpen(true)}  startIcon={<PlusIcon size ="md"/>} size="sm" variant= "primary" text="Add content"/>
      <Button onClick = { async() =>{
       const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share` , {
         share: true

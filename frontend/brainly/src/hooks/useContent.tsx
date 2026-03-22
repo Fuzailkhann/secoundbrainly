@@ -3,7 +3,16 @@ import { useEffect, useState } from "react";
 import {BACKEND_URL}  from "../config";
 
 export function useContent() {
-    const [ contents , setContents ] = useState([])
+
+    type Content  = {
+        type : "twitter" | "youtube" ;
+        title : string ;
+        link: string ;
+
+
+
+    }
+    const [ contents , setContents ] = useState<Content[]>([])
 
     function fetchContent(){
         const token = localStorage.getItem("token");

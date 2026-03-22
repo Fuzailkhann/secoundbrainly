@@ -1,21 +1,3 @@
-// import { Input } from "../components/input";
-// import { Button } from "../components/ui/Button";
-
-
-// export function Signin() {
-//     return <div className="h-screen w-screen  bg-gray-200 flex justify-center items-center">
-//         <div className="bg-white min-w-48 border rounded-xl p-8 gap-4 border-white">
-//             <Input  placeholder="Username"/>
-//             <Input placeholder="Password"/>
-//             <div className="flex justify-center">
-//                   <Button loading = {false} variant="primary" text="Sign in" size="sm" fullWidth = {true} />
-
-//             </div>
-          
-//         </div>
-
-//     </div>
-// }
 
 
 import { useRef } from "react";
@@ -28,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export function Signin() {
-    const usernameRef = useRef<HTMLInputElement>();
-    const passwordRef = useRef<HTMLInputElement>();
+    const usernameRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
     async function handleSignin(){
