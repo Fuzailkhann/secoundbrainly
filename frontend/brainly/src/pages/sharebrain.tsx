@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Sidebar } from "../components/ui/Sidebar";
 import { Card } from "../components/Card";
+import { BACKEND_URL } from "../config";
+
 
  export type ContentType = "twitter" | "youtube" | "all";
 export function SharedBrain() {
@@ -10,10 +12,10 @@ export function SharedBrain() {
   
   const [data, setData] = useState<any[]>([]);
   const [selectedType , setSelectedType] = useState<ContentType>("all")
-
+  
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/share/${hash}`)
+      .get(`${BACKEND_URL}/api/v1/share/${hash}`)
       .then((res) => {
         setData(res.data.content);
         console.log("share brain data", res.data);
